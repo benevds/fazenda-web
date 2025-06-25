@@ -1,0 +1,119 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+body {
+    background-image: url('https://images.pexels.com/photos/247597/pexels-photo-247597.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.onboarding-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.onboarding-box {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.welcome-icon {
+    font-size: 48px;
+    color: #2ecc71;
+    margin-bottom: 15px;
+}
+
+h2 {
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+p {
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+.features-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.features-list span {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.features-list span i {
+    margin-right: 8px;
+    color: #2ecc71;
+}
+
+.btn-primary {
+    display: inline-block;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #27ae60;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #2ecc71;
+}
+
+/* Estilos para o formulário */
+form {
+    text-align: left;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #ddd;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #556B2F;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    color: #333;
+    box-sizing: border-box;
+}
+
+form .btn-primary {
+    margin-top: 10px;
+}

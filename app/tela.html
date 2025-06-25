@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - FazendaWeb</title>
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h3>FazendaWeb</h3>
+            </div>
+            <ul class="menu-links">
+                <li class="active"><a href="#"><i class="fas fa-home"></i><span>Dashboard</span></a></li>
+                <li><a href="#"><i class="fas fa-cow"></i><span>Gado de Corte</span></a></li>
+                <li><a href="#"><i class="fas fa-ruler-combined"></i><span>Tempo e Espaço</span></a></li>
+                <li><a href="#"><i class="fas fa-leaf"></i><span>Pasto e Alimento</span></a></li>
+                <li><a href="#"><i class="fas fa-syringe"></i><span>Sanidade</span></a></li>
+                <li><a href="#"><i class="fas fa-users"></i><span>Funcionários</span></a></li>
+                <li><a href="#"><i class="fas fa-dollar-sign"></i><span>Vendas</span></a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Dashboard</h1>
+                <div class="user-info">
+                    <span>Olá, Gestor!</span>
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </header>
+
+            <div class="overview-cards">
+                <div class="card">
+                    <i class="fas fa-cow card-icon" style="color: #2ecc71;"></i>
+                    <div class="card-info">
+                        <h4>Total de Animais</h4>
+                        <p>1.250</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <i class="fas fa-bell card-icon" style="color: #e74c3c;"></i>
+                    <div class="card-info">
+                        <h4>Alertas</h4>
+                        <p>3 Vacinas Atrasadas</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <i class="fas fa-map-marker-alt card-icon" style="color: #3498db;"></i>
+                    <div class="card-info">
+                        <h4>Pastos em Uso</h4>
+                        <p>4 de 6</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tasks-section">
+                <h2>Próximas Tarefas Agendadas</h2>
+                <ul>
+                    <li><i class="fas fa-calendar-check"></i> Pesar lote B-02 - <strong>Amanhã</strong></li>
+                    <li><i class="fas fa-calendar-check"></i> Vacinar lote A-07 contra febre aftosa - <strong>Em 3 dias</strong></li>
+                    <li><i class="fas fa-calendar-check"></i> Rotacionar gado do Pasto 03 para o 04 - <strong>Em 5 dias</strong></li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>

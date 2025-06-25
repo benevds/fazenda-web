@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuração Inicial - FazendaWeb</title>
+    <link rel="stylesheet" href="css/onboarding.css">
+</head>
+<body>
+    <div class="onboarding-container">
+        <div class="onboarding-box">
+            <h2>Configuração Inicial</h2>
+            <p>Vamos começar com alguns dados básicos sobre sua propriedade.</p>
+            <form id="setup-form">
+                <div class="input-group">
+                    <label for="farm-name">Nome da Fazenda</label>
+                    <input type="text" id="farm-name" required>
+                </div>
+                <div class="input-group">
+                    <label for="farm-area">Área Total (em hectares)</label>
+                    <input type="number" id="farm-area" required>
+                </div>
+                <div class="input-group">
+                    <label for="cattle-breed">Principal Raça do Gado</label>
+                    <input type="text" id="cattle-breed" placeholder="Ex: Nelore, Angus" required>
+                </div>
+                <button type="submit" class="btn-primary">Finalizar e ir para o Dashboard</button>
+            </form>
+        </div>
+    </div>
+    <script src="js/configuracao.js"></script>
+</body>
+</html>
