@@ -13,7 +13,6 @@ setupForm.addEventListener('submit', (event) => {
         return;
     }
 
-    // Mostra um alerta de sucesso
     alert('Configuração salva com sucesso! Preparando seu Dashboard...');
 
     // E AQUI ACONTECE A MÁGICA:

@@ -29,12 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 alert(result.message); // "Login bem-sucedido!"
                 
-                // Guarda o token de acesso no navegador para usar depois
+                // Guarda a "chave" de acesso no navegador
                 localStorage.setItem('authToken', result.token);
 
                 // Redireciona para a tela de boas-vindas
-                window.location.href = "../app/bem-vindo.html";
+                window.location.href = "../app/bemvindo.html";
             } else {
+                // Mostra o erro que veio da API (ex: "Credenciais inválidas.")
                 alert(`Erro: ${result.message}`);
             }
         } catch (error) {
