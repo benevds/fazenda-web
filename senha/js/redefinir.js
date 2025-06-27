@@ -1,21 +1,44 @@
-const resetForm = document.getElementById('reset-form');
+document.addEventListener('DOMContentLoaded', () => {
+    const resetForm = document.getElementById('reset-form');
 
-resetForm.addEventListener('submit', (event) => {
-    event.preventDefault(); 
-    const newPassword = resetForm['new-password'].value;
-    const confirmPassword = resetForm['confirm-password'].value;
+    // Pega o token da URL da página
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('token');
 
-    if (newPassword === '' || confirmPassword === '') {
-        alert('Por favor, preencha todos os campos.');
+    if (!token) {
+        alert('Token de redefinição não encontrado. Por favor, use o link enviado para o seu e-mail.');
+        resetForm.querySelector('button').disabled = true;
         return;
     }
 
-    if (newPassword !== confirmPassword) {
-        alert('As senhas não coincidem. Tente novamente.');
-        return;
-    }
-    
-    alert('Senha redefinida com sucesso!');
+    resetForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        
+        const password = document.getElementById('new-password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
 
-    window.location.href = '../login/index.html';
+        if (password !== confirmPassword) {
+            alert('As senhas não coincidem.');
+            return;
+        }
+
+        try {
+            const response = await fetch('http://localhost:3000/api/auth/reset-password', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ token, password })
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                alert(result.message);
+                window.location.href = '../login/index.html'; // Volta para o login
+            } else {
+                alert(`Erro: ${result.message}`);
+            }
+        } catch (error) {
+            alert('Erro ao conectar com o servidor. Tente novamente.');
+        }
+    });
 });
