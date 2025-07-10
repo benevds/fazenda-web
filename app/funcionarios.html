@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionários - FazendaWeb</title>
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Menu Lateral com o item "Funcionários" ativo -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h3>Smartfarm</h3>
+            </div>
+            <ul class="menu-links">
+                <li><a href="index.html"><i class="fas fa-home"></i><span>Dashboard</span></a></li>
+                <li><a href="gado.html"><i class="fas fa-cow"></i><span>Gado de Corte</span></a></li>
+                <li><a href="espaco.html"><i class="fas fa-ruler-combined"></i><span>Tempo e Espaço</span></a></li>
+                <li><a href="alimento.html"><i class="fas fa-leaf"></i><span>Pasto e Alimento</span></a></li>
+                <li><a href="sanidade.html"><i class="fas fa-syringe"></i><span>Sanidade</span></a></li>
+                <li class="active"><a href="funcionarios.html"><i class="fas fa-users"></i><span>Funcionários</span></a></li>
+                <li><a href="vendas.html"><i class="fas fa-dollar-sign"></i><span>Vendas</span></a></li>
+                <li><a href="seguranca.html"><i class="fas fa-shield-alt"></i><span>Segurança</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <header class="page-header">
+                <h1>Gestão de Equipe</h1>
+                <a href="#" id="add-employee-btn" class="btn-add-new"><i class="fas fa-user-plus"></i> Adicionar Funcionário</a>
+            </header>
+
+            <!-- Grid de Cards dos Funcionários -->
+            <div id="employee-grid" class="employee-grid">
+                <!-- Card de Exemplo 1 -->
+                <div class="employee-card">
+                    <div class="employee-header">
+                        <img src="https://placehold.co/80x80/2ecc71/FFFFFF?text=JC" alt="Avatar João Carlos">
+                        <div class="employee-info">
+                            <h3>João Carlos</h3>
+                            <p>Vaqueiro / Operador de Máquinas</p>
+                        </div>
+                    </div>
+                    <div class="employee-tasks">
+                        <h4>Tarefas Atuais:</h4>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Rotacionar gado do Pasto 03</li>
+                            <li><i class="fas fa-check-circle"></i> Pesar lote B-02</li>
+                        </ul>
+                    </div>
+                    <button class="btn-assign-task" data-employee="João Carlos">Atribuir Nova Tarefa</button>
+                </div>
+
+                <!-- Card de Exemplo 2 -->
+                <div class="employee-card">
+                    <div class="employee-header">
+                        <img src="https://placehold.co/80x80/3498db/FFFFFF?text=MA" alt="Avatar Maria Andrade">
+                        <div class="employee-info">
+                            <h3>Maria Andrade</h3>
+                            <p>Veterinária / Controle Sanitário</p>
+                        </div>

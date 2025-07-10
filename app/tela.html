@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - FazendaWeb</title>
+    <title>Dashboard - Smartfarm</title>
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
@@ -11,25 +11,40 @@
     <div class="app-container">
         <nav class="sidebar">
             <div class="sidebar-header">
-                <h3>FazendaWeb</h3>
+                <h3>Smartfarm</h3>
             </div>
             <ul class="menu-links">
-                <li class="active"><a href="#"><i class="fas fa-home"></i><span>Dashboard</span></a></li>
-                <li><a href="#"><i class="fas fa-cow"></i><span>Gado de Corte</span></a></li>
-                <li><a href="#"><i class="fas fa-ruler-combined"></i><span>Tempo e Espaço</span></a></li>
-                <li><a href="#"><i class="fas fa-leaf"></i><span>Pasto e Alimento</span></a></li>
-                <li><a href="#"><i class="fas fa-syringe"></i><span>Sanidade</span></a></li>
-                <li><a href="#"><i class="fas fa-users"></i><span>Funcionários</span></a></li>
-                <li><a href="#"><i class="fas fa-dollar-sign"></i><span>Vendas</span></a></li>
+                <li class="active"><a href="tela.html"><i class="fas fa-home"></i><span>Dashboard</span></a></li>
+                <li><a href="gado.html"><i class="fas fa-cow"></i><span>Gado de Corte</span></a></li>
+                <li><a href="espaco.html"><i class="fas fa-ruler-combined"></i><span>Tempo e Espaço</span></a></li>
+                <li><a href="alimento.html"><i class="fas fa-leaf"></i><span>Pasto e Alimento</span></a></li>
+                <li><a href="sanidade.html"><i class="fas fa-syringe"></i><span>Sanidade</span></a></li>
+                <li><a href="funcionarios.html"><i class="fas fa-users"></i><span>Funcionários</span></a></li>
+                <li><a href="vendas.html"><i class="fas fa-dollar-sign"></i><span>Vendas</span></a></li>
+                <li><a href="seguranca.html"><i class="fas fa-shield-alt"></i><span>Segurança</span></a></li>
             </ul>
         </nav>
 
         <main class="main-content">
             <header class="main-header">
                 <h1>Dashboard</h1>
-                <div class="user-info">
-                    <span>Olá, Gestor!</span>
-                    <i class="fas fa-user-circle"></i>
+                <div class="user-profile">
+                    <button id="user-profile-btn" class="user-profile-btn">
+                        <span id="profile-greeting">Olá!</span>
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                    <div id="profile-dropdown" class="profile-dropdown">
+                        <div class="profile-info">
+                            <strong id="profile-name">Carregando...</strong>
+                            <small id="profile-email">...</small>
+                        </div>
+                        <a href="seguranca.html" class="dropdown-item">
+                            <i class="fas fa-shield-alt"></i> Segurança
+                        </a>
+                        <a href="#" id="logout-btn" class="dropdown-item">
+                            <i class="fas fa-sign-out-alt"></i> Sair
+                        </a>
+                    </div>
                 </div>
             </header>
 
@@ -44,7 +59,7 @@
                 <div class="card">
                     <i class="fas fa-bell card-icon" style="color: #e74c3c;"></i>
                     <div class="card-info">
-                        <h4>Alertas</h4>
+                        <h4>Alertas Urgentes</h4>
                         <p>3 Vacinas Atrasadas</p>
                     </div>
                 </div>
@@ -57,13 +72,59 @@
                 </div>
             </div>
 
-            <div class="tasks-section">
+            <div class="section-container" style="margin-top: 30px;">
+                <h2>Lotes em Destaque</h2>
+                <div class="featured-lots-container" id="featured-lots">
+                    <div class="lot-card">
+                        <img src="https://images.pexels.com/photos/162240/cattle-cow-bw-black-and-white-162240.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Gado Nelore">
+                        <div class="lot-info">
+                            <h3>Lote A-07 (Nelore)</h3>
+                            <p><i class="fas fa-weight"></i> Peso Médio: 490 kg</p>
+                            <span class="status status-pronto">Pronto p/ Venda</span>
+                        </div>
+                    </div>
+                    <div class="lot-card">
+                        <img src="https://images.pexels.com/photos/266706/pexels-photo-266706.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Gado Angus">
+                        <div class="lot-info">
+                            <h3>Lote B-02 (Angus)</h3>
+                            <p><i class="fas fa-weight"></i> Peso Médio: 450 kg</p>
+                            <span class="status status-engorda">Em Engorda</span>
+                        </div>
+                    </div>
+                    <div class="lot-card">
+                        <img src="https://images.pexels.com/photos/7414210/pexels-photo-7414210.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Gado Brangus">
+                        <div class="lot-info">
+                            <h3>Lote C-01 (Brangus)</h3>
+                            <p><i class="fas fa-weight"></i> Peso Médio: 475 kg</p>
+                            <span class="status status-engorda">Em Engorda</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="table-container" style="margin-top: 30px;">
                 <h2>Próximas Tarefas Agendadas</h2>
-                <ul>
-                    <li><i class="fas fa-calendar-check"></i> Pesar lote B-02 - <strong>Amanhã</strong></li>
-                    <li><i class="fas fa-calendar-check"></i> Vacinar lote A-07 contra febre aftosa - <strong>Em 3 dias</strong></li>
-                    <li><i class="fas fa-calendar-check"></i> Rotacionar gado do Pasto 03 para o 04 - <strong>Em 5 dias</strong></li>
-                </ul>
+                <table class="content-table">
+                     <thead>
+                        <tr>
+                            <th>Tarefa</th>
+                            <th>Lote/Animal</th>
+                            <th>Prazo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i class="fas fa-weight-hanging"></i> Pesar lote</td>
+                            <td>Lote B-02</td>
+                            <td><strong>Amanhã</strong></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-syringe"></i> Vacinar contra febre aftosa</td>
+                            <td>Lote A-07</td>
+                            <td><strong>Em 3 dias</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </main>
     </div>

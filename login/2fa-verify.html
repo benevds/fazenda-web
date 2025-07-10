@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>Verificação de Dois Fatores</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Verificação de Segurança</h2>
+            <p style="color: #ccc; font-size: 14px; margin-top: -15px; margin-bottom: 20px;">
+                Abra seu app autenticador e digite o código de 6 dígitos.
+            </p>
+            <form id="2fa-verify-form">
+                <div class="input-group">
+                    <label for="2fa-token">Código de 6 dígitos</label>
+                    <input type="text" id="2fa-token" required>
+                </div>
+                <button type="submit">Verificar Código</button>
+            </form>
+        </div>
+    </div>
+    <script src="js/2fa-verify.js"></script>
+</body>
+</html>

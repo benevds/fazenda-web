@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanidade - FazendaWeb</title>
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Menu Lateral com o item "Sanidade" ativo -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h3>Smartfarm</h3>
+            </div>
+            <ul class="menu-links">
+                <li><a href="index.html"><i class="fas fa-home"></i><span>Dashboard</span></a></li>
+                <li><a href="gado.html"><i class="fas fa-cow"></i><span>Gado de Corte</span></a></li>
+                <li><a href="espaco.html"><i class="fas fa-ruler-combined"></i><span>Tempo e Espaço</span></a></li>
+                <li><a href="alimento.html"><i class="fas fa-leaf"></i><span>Pasto e Alimento</span></a></li>
+                <li class="active"><a href="sanidade.html"><i class="fas fa-syringe"></i><span>Sanidade</span></a></li>
+                <li><a href="funcionarios.html"><i class="fas fa-users"></i><span>Funcionários</span></a></li>
+                <li><a href="vendas.html"><i class="fas fa-dollar-sign"></i><span>Vendas</span></a></li>
+                <li><a href="seguranca.html"><i class="fas fa-shield-alt"></i><span>Segurança</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <header class="page-header">
+                <h1>Controle de Sanidade</h1>
+                <a href="#" id="add-occurrence-btn" class="btn-add-new"><i class="fas fa-plus"></i> Registrar Ocorrência</a>
+            </header>
+
+            <!-- Seção de Estoque de Medicamentos -->
+            <div class="section-container">
+                <h2>Estoque de Medicamentos</h2>
+                <div id="stock-cards-container" class="stock-cards-container">
+                    <!-- Card de Exemplo 1 -->
+                    <div class="stock-card">
+                        <div class="stock-icon"><i class="fas fa-pills"></i></div>
+                        <div class="stock-info">
+                            <h3>Ivermectina 1%</h3>
+                            <p>50 / 100 frascos</p>
+                        </div>
+                        <div class="stock-level level-ok">Estoque OK</div>
+                    </div>
+                    <!-- Card de Exemplo 2 -->
+                    <div class="stock-card">
+                        <div class="stock-icon"><i class="fas fa-syringe"></i></div>
+                        <div class="stock-info">
+                            <h3>Vacina Aftosa</h3>
+                            <p>15 / 200 doses</p>
+                        </div>
+                        <div class="stock-level level-low">Estoque Baixo</div>
+                    </div>
+                    <!-- Card de Exemplo 3 -->
+                    <div class="stock-card">
+                        <div class="stock-icon"><i class="fas fa-band-aid"></i></div>
+                        <div class="stock-info">
+                            <h3>Cicatrizante Prata</h3>
+                            <p>30 / 50 tubos</p>
+                        </div>
+                        <div class="stock-level level-ok">Estoque OK</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção de Agenda de Vacinação -->
+            <div class="table-container" style="margin-top: 30px;">
+                <h2>Agenda de Vacinação</h2>
+                <table class="content-table">
+                    <thead>
+                        <tr>
+                            <th>Vacina</th>
+                            <th>Lote Alvo</th>
+                            <th>Data Programada</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="vaccine-table-body">
+                        <tr>
+                            <td>Febre Aftosa</td>
+                            <td>Lote A-07</td>
+                            <td>12/07/2025</td>
+                            <td><span class="status status-pronto">Agendado</span></td>
+                        </tr>
+                        <tr>
+                            <td>Raiva</td>
+                            <td>Lote C-01</td>
+                            <td>25/07/2025</td>
+                            <td><span class="status status-pronto">Agendado</span></td>
+                        </tr>
+                        <tr>
+                            <td>Clostridioses</td>
+                            <td>Lote B-02</td>
+                            <td>01/08/2025</td>
+                            <td><span class="status status-pronto">Agendado</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para Registrar Nova Ocorrência -->
+    <div id="add-occurrence-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h2>Registrar Ocorrência Sanitária</h2>
+                <button id="close-modal-btn" class="close-btn">&times;</button>
+            </header>
+            <form id="new-occurrence-form">
+                <div class="input-group">
+                    <label for="occurrence-animal">Animal / Lote</label>
+                    <input type="text" id="occurrence-animal" placeholder="Ex: BR00123 ou Lote B-02" required>
+                </div>
+                <div class="input-group">
+                    <label for="occurrence-type">Tipo de Ocorrência</label>
+                    <select id="occurrence-type" required>
+                        <option value="Vacinação">Vacinação</option>
+                        <option value="Doença">Diagnóstico de Doença</option>
+                        <option value="Tratamento">Aplicação de Tratamento</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="occurrence-description">Descrição</label>
+                    <input type="text" id="occurrence-description" placeholder="Ex: Vacina Aftosa ou Sintomas de..." required>
+                </div>
+                 <div class="input-group">
+                    <label for="occurrence-date">Data da Ocorrência</label>
+                    <input type="date" id="occurrence-date" required>
+                </div>
+                <button type="submit" class="btn-add-new" style="width: 100%;">Salvar Registro</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/sanidade.js"></script>
+</body>
+</html>

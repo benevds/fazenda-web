@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempo e Espaço - FazendaWeb</title>
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Menu Lateral com o item "Tempo e Espaço" ativo -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h3>Smartfarm</h3>
+            </div>
+            <ul class="menu-links">
+                <li><a href="tela.html"><i class="fas fa-home"></i><span>Dashboard</span></a></li>
+                <li><a href="gado.html"><i class="fas fa-cow"></i><span>Gado de Corte</span></a></li>
+                <li class="active"><a href="espaco.html"><i class="fas fa-ruler-combined"></i><span>Tempo e Espaço</span></a></li>
+                <li><a href="alimento.html"><i class="fas fa-leaf"></i><span>Pasto e Alimento</span></a></li>
+                <li><a href="sanidade.html"><i class="fas fa-syringe"></i><span>Sanidade</span></a></li>
+                <li><a href="funcionarios.html"><i class="fas fa-users"></i><span>Funcionários</span></a></li>
+                <li><a href="vendas.html"><i class="fas fa-dollar-sign"></i><span>Vendas</span></a></li>
+                <li><a href="seguranca.html"><i class="fas fa-shield-alt"></i><span>Segurança</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <header class="page-header">
+                <h1>Gestão de Tempo e Espaço</h1>
+                <a href="#" id="add-pasture-btn" class="btn-add-new"><i class="fas fa-plus"></i> Adicionar Pasto</a>
+            </header>
+
+            <!-- Seção de Pastos Próprios -->
+            <div class="section-container">
+                <h2>Meus Pastos</h2>
+                <div id="my-pastures-grid" class="pasture-grid">
+                    <!-- Card de Exemplo 1 -->
+                    <div class="pasture-card">
+                        <div class="pasture-card-header">
+                            <h3>Pasto 01 - "Retiro"</h3>
+                            <span class="status status-pronto">Em Uso</span>
+                        </div>
+                        <div class="pasture-card-body">
+                            <p><i class="fas fa-cow"></i> <strong>Lote Atual:</strong> Lote B-02 (50 cabeças)</p>
+                            <p><i class="fas fa-ruler-horizontal"></i> <strong>Capacidade:</strong> 50 / 60 cabeças</p>
+                            <p><i class="far fa-calendar-alt"></i> <strong>Em uso há:</strong> 5 dias</p>
+                        </div>
+                    </div>
+                    <!-- Card de Exemplo 2 -->
+                    <div class="pasture-card">
+                        <div class="pasture-card-header">
+                            <h3>Pasto 02 - "Córrego"</h3>
+                            <span class="status status-engorda">Em Descanso</span>
+                        </div>
+                        <div class="pasture-card-body">
+                            <p><i class="fas fa-cow"></i> <strong>Lote Atual:</strong> Vazio</p>
+                            <p><i class="fas fa-ruler-horizontal"></i> <strong>Capacidade:</strong> 0 / 70 cabeças</p>
+                            <p><i class="far fa-calendar-alt"></i> <strong>Descansando há:</strong> 12 dias</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção de Pastos de Parceiros -->
+            <div class="section-container" style="margin-top: 30px;">
+                <h2>Pastos de Parceiros (Arrendados)</h2>
+                <div id="partner-pastures-grid" class="pasture-grid">
+                     <!-- Card de Exemplo 3 -->
+                    <div class="pasture-card partner">
+                        <div class="pasture-card-header">
+                            <h3>Fazenda São Jorge - Pasto A</h3>
+                            <span class="status status-pronto">Em Uso</span>
+                        </div>
+                        <div class="pasture-card-body">
+                            <p><i class="fas fa-cow"></i> <strong>Lote Atual:</strong> Lote C-01 (48 cabeças)</p>
+                            <p><i class="fas fa-handshake"></i> <strong>Parceiro:</strong> José da Silva</p>
+                            <p><i class="fas fa-dollar-sign"></i> <strong>Custo:</strong> R$ 15,00 / cabeça / mês</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para Adicionar Novo Pasto -->
+    <div id="add-pasture-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h2>Cadastrar Nova Área de Pasto</h2>
+                <button id="close-modal-btn" class="close-btn">&times;</button>
+            </header>
+            <form id="new-pasture-form">
+                <div class="input-group">
+                    <label for="pasture-name">Nome do Pasto / Área</label>
+                    <input type="text" id="pasture-name" placeholder="Ex: Pasto 03 - Fundos" required>
+                </div>
+                <div class="input-group">
+                    <label for="pasture-type">Tipo de Propriedade</label>
+                    <select id="pasture-type" required>
+                        <option value="proprio">Pasto Próprio</option>
+                        <option value="parceiro">Pasto de Parceiro (Arrendado)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="pasture-capacity">Capacidade (nº de cabeças)</label>
+                    <input type="number" id="pasture-capacity" required>
+                </div>
+                <!-- Campo que só aparece se for de parceiro -->
+                <div id="partner-fields" style="display: none;">
+                    <div class="input-group">
+                        <label for="partner-name">Nome do Parceiro</label>
+                        <input type="text" id="partner-name">
+                    </div>
+                     <div class="input-group">
+                        <label for="partner-cost">Custo (R$ / cabeça / mês)</label>
+                        <input type="number" step="0.01" id="partner-cost">
+                    </div>
+                </div>
+                <button type="submit" class="btn-add-new" style="width: 100%;">Salvar Área</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/espaco.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasto e Alimento - FazendaWeb</title>
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Menu Lateral com o item "Pasto e Alimento" ativo -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h3>Smartfarm</h3>
+            </div>
+            <ul class="menu-links">
+                <li><a href="tela.html"><i class="fas fa-home"></i><span>Dashboard</span></a></li>
+                <li><a href="gado.html"><i class="fas fa-cow"></i><span>Gado de Corte</span></a></li>
+                <li><a href="espaco.html"><i class="fas fa-ruler-combined"></i><span>Tempo e Espaço</span></a></li>
+                <li class="active"><a href="alimento.html"><i class="fas fa-leaf"></i><span>Pasto e Alimento</span></a></li>
+                <li><a href="sanidade.html"><i class="fas fa-syringe"></i><span>Sanidade</span></a></li>
+                <li><a href="funcionarios.html"><i class="fas fa-users"></i><span>Funcionários</span></a></li>
+                <li><a href="vendas.html"><i class="fas fa-dollar-sign"></i><span>Vendas</span></a></li>
+                <li><a href="seguranca.html"><i class="fas fa-shield-alt"></i><span>Segurança</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <header class="page-header">
+                <h1>Gestão de Pasto e Alimento</h1>
+                <a href="#" id="add-forage-btn" class="btn-add-new"><i class="fas fa-plus"></i> Adicionar Forragem</a>
+            </header>
+
+            <!-- Seção de Tipos de Forragem -->
+            <div class="section-container">
+                <h2>Tipos de Forragem Cadastrados</h2>
+                <div id="forage-cards-container" class="forage-cards-container">
+                    <!-- Card de Exemplo 1 -->
+                    <div class="forage-card">
+                        <div class="forage-icon" style="background-color: #e6f7ff;"><i class="fas fa-seedling" style="color: #1890ff;"></i></div>
+                        <div class="forage-info">
+                            <h3>Capim Mombaça</h3>
+                            <p>Tipo: Gramínea</p>
+                        </div>
+                        <div class="forage-stats">
+                            <span>14% PB</span>
+                            <span class="quality-high">Alta Qualidade</span>
+                        </div>
+                    </div>
+                    <!-- Card de Exemplo 2 -->
+                    <div class="forage-card">
+                        <div class="forage-icon" style="background-color: #fffbe6;"><i class="fas fa-drumstick-bite" style="color: #faad14;"></i></div>
+                        <div class="forage-info">
+                            <h3>Ração de Engorda</h3>
+                            <p>Tipo: Suplemento</p>
+                        </div>
+                        <div class="forage-stats">
+                            <span>22% PB</span>
+                            <span class="quality-high">Alta Qualidade</span>
+                        </div>
+                    </div>
+                    <!-- Card de Exemplo 3 -->
+                    <div class="forage-card">
+                        <div class="forage-icon" style="background-color: #f6ffed;"><i class="fas fa-leaf" style="color: #52c41a;"></i></div>
+                        <div class="forage-info">
+                            <h3>Capim Brachiaria</h3>
+                            <p>Tipo: Gramínea</p>
+                        </div>
+                        <div class="forage-stats">
+                            <span>11% PB</span>
+                            <span class="quality-medium">Média Qualidade</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção de Plano de Rotação -->
+            <div class="table-container" style="margin-top: 30px;">
+                <h2>Plano de Rotação de Pasto</h2>
+                <table class="content-table">
+                    <thead>
+                        <tr>
+                            <th>Pasto</th>
+                            <th>Lote de Gado</th>
+                            <th>Data de Entrada</th>
+                            <th>Saída Prevista</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pasto 01</td>
+                            <td>Lote B-02</td>
+                            <td>01/07/2025</td>
+                            <td>15/07/2025</td>
+                            <td><span class="status status-pronto">Em Uso</span></td>
+                        </tr>
+                        <tr>
+                            <td>Pasto 02</td>
+                            <td>Lote C-01</td>
+                            <td>05/07/2025</td>
+                            <td>20/07/2025</td>
+                            <td><span class="status status-pronto">Em Uso</span></td>
+                        </tr>
+                        <tr>
+                            <td>Pasto 03</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td><span class="status status-engorda">Em Descanso</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para Adicionar Nova Forragem -->
+    <div id="add-forage-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h2>Cadastrar Nova Forragem</h2>
+                <button id="close-modal-btn" class="close-btn">&times;</button>
+            </header>
+            <form id="new-forage-form">
+                <div class="input-group">
+                    <label for="forage-name">Nome da Forragem</label>
+                    <input type="text" id="forage-name" placeholder="Ex: Capim Mombaça" required>
+                </div>
+                <div class="input-group">
+                    <label for="forage-type">Tipo</label>
+                    <select id="forage-type" required>
+                        <option value="Gramínea">Gramínea (Capim)</option>
+                        <option value="Suplemento">Suplemento (Ração)</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="forage-protein">Proteína Bruta (% PB)</label>
+                    <input type="number" id="forage-protein" placeholder="Ex: 14" required>
+                </div>
+                <button type="submit" class="btn-add-new" style="width: 100%;">Salvar Forragem</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/alimento.js"></script>
+</body>
+</html>
